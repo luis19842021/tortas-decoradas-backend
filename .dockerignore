@@ -1,0 +1,8 @@
+target/
+.git/
+.github/
+.idea/
+.vscode/
+HELP.md
+pref.json
+src/main/resources/secretos.properties

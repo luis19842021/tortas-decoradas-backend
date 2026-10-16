@@ -1,0 +1,32 @@
+package com.tortas.decoradas.producto.dominio.modelo;
+
+public enum SubCategoria {
+    NINGUNO,
+    INFANTILES,
+    CASAMIENTOS,
+    ANIVERSARIOS,
+    CUMPLEAÑOS,
+    BABYSHOWER,
+    GRADUACIONES,
+    HALLOWEEN,
+    NAVIDAD,
+    SANVALENTÍN,
+    DEPORTES,
+    SERIESANIME,
+    VIDEOJUEGOS,
+    DESPEDIDADESOLTERO,
+    COMUNION,
+    CONFIRMACION,
+    BAUTISMO,
+    PROFESIONES,
+    FIESTADE15AÑOS,
+    DÍADELAMADRE,
+    DÍADELPADRE,
+    DÍADELAMUJER,
+    DÍADELAMIGO,
+    DÍADELNIÑO,
+    ERÓTICOS,
+    ADULTOS,
+    NUMEROSCHOCOTORTAS,
+    GOLOSINERAS
+}
