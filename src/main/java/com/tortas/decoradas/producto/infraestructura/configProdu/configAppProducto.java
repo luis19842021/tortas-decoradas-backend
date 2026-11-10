@@ -13,6 +13,7 @@ import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoCambi
 import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoCambiarEstadoProductoImpl;
 import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoCrearProductoImpl;
 import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoEliminarProductoImpl;
+import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoEliminarSaborImpl;
 import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoGuardarBizcochueloImpl;
 import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoGuardarCategoriaSaborImpl;
 import com.tortas.decoradas.producto.aplicacion.casoDeUsoProducto.CasoDeUsoGuardarCodigoPostalImpl;
@@ -85,7 +86,8 @@ public class configAppProducto {
               new CasoDeUsoObtenerListaDeCategoriasSaborImpl(puertoRepositorioProducto),
               new CasoDeUsoGuardarCategoriaSaborImpl(puertoRepositorioProducto),
               new CasoDeUsoAjustarPreciosImpl(puertoRepositorioProducto),
-              new CasoDeUsoCambiarEstadoProductoImpl(puertoRepositorioProducto)
+              new CasoDeUsoCambiarEstadoProductoImpl(puertoRepositorioProducto),
+              new CasoDeUsoEliminarSaborImpl(puertoRepositorioProducto)
 
             );
 

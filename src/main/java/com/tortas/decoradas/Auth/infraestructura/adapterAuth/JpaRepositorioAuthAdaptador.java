@@ -335,8 +335,8 @@ public class JpaRepositorioAuthAdaptador implements PuertoRepositorioAuth {
 
     @Override
     public void restablecerContrasenia(String token, String nuevaContrasenia) {
-        if (nuevaContrasenia == null || nuevaContrasenia.length() < 6) {
-            throw new IllegalArgumentException("La contraseña nueva tiene que tener al menos 6 caracteres.");
+        if (nuevaContrasenia == null || nuevaContrasenia.length() < 8) {
+            throw new IllegalArgumentException("La contraseña nueva tiene que tener al menos 8 caracteres.");
         }
 
         EntidadPasswordResetToken entidadToken = jpaRepositorioPasswordResetToken.findByToken(token);

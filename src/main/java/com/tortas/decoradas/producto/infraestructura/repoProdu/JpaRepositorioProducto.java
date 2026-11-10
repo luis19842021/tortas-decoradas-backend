@@ -97,10 +97,10 @@ public interface JpaRepositorioProducto extends JpaRepository<EntidadProducto, L
                         + "WHERE t.tipo=?1 and p.categoria=?2 AND p.suspendido=0 ORDER BY id_producto", nativeQuery = true)
         Long totalProductosPoTipo(String tipo, String categoria);
 
-        @Query(value = "SELECT nombre_producto FROM producto ", nativeQuery = true)
+        @Query(value = "SELECT nombre_producto FROM producto WHERE suspendido = 0", nativeQuery = true)
         List<String> listadeNombresPoroductos();
 
-         @Query(value = "SELECT* FROM producto  WHERE nombre_Producto=?1 ORDER BY id_producto ASC", nativeQuery = true)
+         @Query(value = "SELECT* FROM producto  WHERE nombre_Producto=?1 AND suspendido = 0 ORDER BY id_producto ASC", nativeQuery = true)
         List<EntidadProducto> buscarPorNombreProducto(String nombre_producto);
 
         @Modifying

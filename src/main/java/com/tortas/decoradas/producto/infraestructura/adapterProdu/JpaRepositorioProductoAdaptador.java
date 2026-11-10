@@ -174,6 +174,23 @@ public class JpaRepositorioProductoAdaptador implements PuertoRepositorioProduct
         return guardado.toDomainModel();
     }
 
+    @Override
+    public Optional<ListaDeSabores> obtenerSaborPorId(Long id) {
+        return jpaRepositorioListaDeSabores.findById(id).map(EntidadListaDeSabores::toDomainModel);
+    }
+
+    @Override
+    public long contarTortasQueUsanSabor(Long id) {
+        return jpaRepositorioListaDeSabores.contarTortasQueUsanSabor(id);
+    }
+
+    @Override
+    @Transactional
+    public void eliminarSabor(Long id) {
+        jpaRepositorioListaDeSabores.deleteById(id);
+        jpaRepositorioListaDeSabores.flush();
+    }
+
     private CategoriaSabor resolverCategoriaSabor(CategoriaSabor categoria) {
         if (categoria == null || categoria.getIdCategoriaSabor() == null) {
             throw new IllegalArgumentException("El sabor necesita una categoría");

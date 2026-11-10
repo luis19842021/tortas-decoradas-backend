@@ -166,6 +166,21 @@ public class ControladorProducto {
       return new ResponseEntity<>(guardado, HttpStatus.OK);
    }
 
+   @DeleteMapping("producto/lista/{id}")
+   public ResponseEntity<?> eliminarSabor(@PathVariable Long id) {
+      try {
+         servicioProducto.eliminarSabor(id);
+         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      } catch (NoSuchElementException e) {
+         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      } catch (IllegalArgumentException | IllegalStateException e) {
+         return ResponseEntity.status(HttpStatus.CONFLICT).body(java.util.Map.of("mensaje", e.getMessage()));
+      } catch (DataIntegrityViolationException e) {
+         return ResponseEntity.status(HttpStatus.CONFLICT)
+               .body(java.util.Map.of("mensaje", "El sabor está en uso y no se puede eliminar."));
+      }
+   }
+
    @GetMapping("producto/listaCategoriasSabor")
    public ResponseEntity<List<CategoriaSabor>> obtenerListaDeCategoriasSabor() {
       List<CategoriaSabor> lista = servicioProducto.obtenerListaDeCategoriasSabor();

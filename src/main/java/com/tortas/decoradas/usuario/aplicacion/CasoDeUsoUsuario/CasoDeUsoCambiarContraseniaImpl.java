@@ -22,8 +22,8 @@ public class CasoDeUsoCambiarContraseniaImpl implements CasoDeUsoCambiarContrase
         if (contraseniaActual == null || contraseniaActual.isBlank()) {
             throw new IllegalArgumentException("Falta la contraseña actual.");
         }
-        if (contraseniaNueva == null || contraseniaNueva.length() < 6) {
-            throw new IllegalArgumentException("La contraseña nueva tiene que tener al menos 6 caracteres.");
+        if (contraseniaNueva == null || contraseniaNueva.length() < 8) {
+            throw new IllegalArgumentException("La contraseña nueva tiene que tener al menos 8 caracteres.");
         }
 
         Usuario usuario = puertoRepositorioUsuario.buscarPorEmail(email)

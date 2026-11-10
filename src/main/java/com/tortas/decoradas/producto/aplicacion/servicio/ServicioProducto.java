@@ -25,6 +25,7 @@ import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoCambiarDosCatEsp
 import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoCambiarEstadoProducto;
 import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoCrearProducto;
 import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoEliminarProducto;
+import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoEliminarSabor;
 import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoGuardarBizcochuelo;
 import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoGuardarCodigoPostal;
 import com.tortas.decoradas.producto.dominio.puerto.in.CasoDeUsoAjustarPrecios;
@@ -66,7 +67,7 @@ public class ServicioProducto implements CasoDeUsoObtenerProducto, CasoDeUsoCrea
         CasoDeUsoObtenerListaDeCodigosPostales, CasoDeUsoGuardarCodigoPostal, CasoDeUsoCalcularEnvioPorDireccion,
         CasoDeUsoActualizarProducto, CasoDeUsoBuscarProductosPorNombre, CasoDeUsoEliminarProducto,
         CasoDeUsoObtenerListaDeCategoriasSabor, CasoDeUsoGuardarCategoriaSabor, CasoDeUsoAjustarPrecios,
-        CasoDeUsoCambiarEstadoProducto{
+        CasoDeUsoCambiarEstadoProducto, CasoDeUsoEliminarSabor{
 
     private final CasoDeUsoObtenerProducto casoDeUsoObtenerProducto;
     private final CasoDeUsoCrearProducto casoDeUsoCrearProducto;
@@ -104,6 +105,7 @@ public class ServicioProducto implements CasoDeUsoObtenerProducto, CasoDeUsoCrea
     private final CasoDeUsoGuardarCategoriaSabor casoDeUsoGuardarCategoriaSabor;
     private final CasoDeUsoAjustarPrecios casoDeUsoAjustarPrecios;
     private final CasoDeUsoCambiarEstadoProducto casoDeUsoCambiarEstadoProducto;
+    private final CasoDeUsoEliminarSabor casoDeUsoEliminarSabor;
 
     public ServicioProducto(CasoDeUsoObtenerProducto casoDeUsoObtenerProducto,
             CasoDeUsoCrearProducto casoDeUsoCrearProducto,
@@ -140,7 +142,8 @@ public class ServicioProducto implements CasoDeUsoObtenerProducto, CasoDeUsoCrea
              CasoDeUsoObtenerListaDeCategoriasSabor casoDeUsoObtenerListaDeCategoriasSabor,
              CasoDeUsoGuardarCategoriaSabor casoDeUsoGuardarCategoriaSabor,
              CasoDeUsoAjustarPrecios casoDeUsoAjustarPrecios,
-             CasoDeUsoCambiarEstadoProducto casoDeUsoCambiarEstadoProducto
+             CasoDeUsoCambiarEstadoProducto casoDeUsoCambiarEstadoProducto,
+             CasoDeUsoEliminarSabor casoDeUsoEliminarSabor
         ) {
         this.casoDeUsoObtenerProducto = casoDeUsoObtenerProducto;
         this.casoDeUsoCrearProducto = casoDeUsoCrearProducto;
@@ -174,6 +177,7 @@ public class ServicioProducto implements CasoDeUsoObtenerProducto, CasoDeUsoCrea
          this.casoDeUsoActualizarProducto=casoDeUsoActualizarProducto;
          this.casoDeUsoBuscarProductosPorNombre=casoDeUsoBuscarProductosPorNombre;
          this.casoDeUsoEliminarProducto=casoDeUsoEliminarProducto;
+         this.casoDeUsoEliminarSabor=casoDeUsoEliminarSabor;
          this.casoDeUsoObtenerListaDeCategoriasSabor=casoDeUsoObtenerListaDeCategoriasSabor;
          this.casoDeUsoGuardarCategoriaSabor=casoDeUsoGuardarCategoriaSabor;
          this.casoDeUsoAjustarPrecios=casoDeUsoAjustarPrecios;
@@ -333,6 +337,11 @@ public class ServicioProducto implements CasoDeUsoObtenerProducto, CasoDeUsoCrea
     @Override
     public List<Producto> buscarProductosPorNombre(String nombre) {
         return casoDeUsoBuscarProductosPorNombre.buscarProductosPorNombre(nombre);
+    }
+
+    @Override
+    public void eliminarSabor(Long id) {
+        casoDeUsoEliminarSabor.eliminarSabor(id);
     }
 
     @Override

@@ -37,6 +37,12 @@ public interface PuertoRepositorioProducto {
 
     ListaDeSabores guardarSabor(ListaDeSabores sabor);
 
+    Optional<ListaDeSabores> obtenerSaborPorId(Long id);
+
+    long contarTortasQueUsanSabor(Long id);
+
+    void eliminarSabor(Long id);
+
     List<CategoriaSabor> obtenerListaDeCategoriasSabor();
 
     CategoriaSabor guardarCategoriaSabor(CategoriaSabor categoriaSabor);
